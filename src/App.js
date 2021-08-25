@@ -2,7 +2,7 @@
 import './App.css';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
-import StoryReel from './components/StoryReel';
+import Feed from './components/Feed';
 
 
 
@@ -12,7 +12,8 @@ function App() {
       <Header/>
       <div className = "app__body">
         <Sidebar/>
-        <StoryReel/>
+        
+        <Feed/>
       </div>
     </div>
   );
