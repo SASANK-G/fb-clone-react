@@ -12,6 +12,9 @@ const MessageSender = () => {
     const [imageUrl, setImageUrl] = useState('');
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        setInput('')
+        setImageUrl('')
     }
 
 
@@ -25,13 +28,13 @@ const MessageSender = () => {
                 />
                 <form>
                     <input 
-                        value = ""
+                        value = {input}
                         onChange = { (e) => setInput(e.target.value)}
                         className = "messageSender__input"
                         placeholder = {`What's on your mind ?`}
                     />
                     <input 
-                        value = ""
+                        value = {imageUrl}
                         onChange = { (e) => setImageUrl(e.target.value)}
                         placeholder = "image URL (optional)"
                     />
