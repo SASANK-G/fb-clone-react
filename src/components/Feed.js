@@ -9,7 +9,15 @@ const Feed = () => {
     <div className="feed"> 
       <StoryReel/>
       <MessageSender/>
-      <Post/>
+      <Post
+          key = ""
+          profilePic = ""
+          message = ""
+          timestamp = ""
+          username = ""
+          image = ""
+      
+      />
     </div>
   )
 }
