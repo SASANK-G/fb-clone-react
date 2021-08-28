@@ -4,20 +4,32 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Feed from './components/Feed';
 import Widget from './components/Widget';
-
+import Login from './components/Login';
+import { useStateValue } from './components/StateProvider';
 
 
 function App() {
+
+   const [{user}, dispatch] = useStateValue();
+
+
   return (
     <div className="App">
-      <Header/>
-      <div className = "app__body">
-        <Sidebar/>
-        
-        <Feed/>
+        { !user ? (<Login />) : (
+        <>
+          <Header/>
+          <div className = "app__body">
+            <Sidebar/>
+            
+            <Feed/>
 
-        <Widget/>
-      </div>
+            <Widget/>
+          </div>
+         
+        </>
+        )}
+
+      
     </div>
   );
 }

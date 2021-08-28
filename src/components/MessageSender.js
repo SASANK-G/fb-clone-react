@@ -6,11 +6,12 @@ import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import db from './firebase'
 import firebase from 'firebase'
+import { useStateValue } from './StateProvider'
 
 
 const MessageSender = () => {
 
-  
+    const [{ user }, dispatch] = useStateValue();
     const [input, setInput] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const handleSubmit = (e) => {
