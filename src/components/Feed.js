@@ -3,6 +3,7 @@ import StoryReel from './StoryReel'
 import './Feed.css';
 import MessageSender from './MessageSender';
 import Post from './Post';
+import firebase from 'firebase'
 
 const Feed = () => {
   return (
