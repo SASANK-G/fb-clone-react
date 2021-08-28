@@ -7,9 +7,15 @@ import NearMeIcon from '@material-ui/icons/NearMe'
 import { ExpandMoreOutlined } from '@material-ui/icons'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 
-const Post = ( profilePic, image, username, timestamp, message ) => {
+const Post = ( props ) => {
+    const {profilePic, image, username, timestamp, message} = props;
+    
+    console.log("pro",profilePic);
+    console.log("name",username);
+    console.log(timestamp);
+    console.log(message);
   return (
-    <div className = "post">
+   <div className = "post">
             <div className = "post__top">
                 <Avatar
                     src = {profilePic}
@@ -17,7 +23,7 @@ const Post = ( profilePic, image, username, timestamp, message ) => {
                 />
                 <div className = "post__topInfo">
                     <h3>{username}</h3>
-                    <p></p>
+                    <p>{timestamp}</p>
                 </div>
             </div>
                 <div className = "post__bottom">

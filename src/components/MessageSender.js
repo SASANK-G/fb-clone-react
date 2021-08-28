@@ -12,42 +12,40 @@ import { useStateValue } from './StateProvider'
 const MessageSender = () => {
 
     const [{ user }, dispatch] = useStateValue();
-    const [input, setInput] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
+    const [Input, setInput] = useState('');
+    const [ImageUrl, setImageUrl] = useState('');
     const handleSubmit = (e) => {
         e.preventDefault();
 
         db.collection('posts').add({
-            message: input,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            message: Input,
+            timestamp: firebase.firestore.Timestamp.now().toDate().toString(),
             profilePic: user.photoURL,
             username: user.displayName,
-            image: imageUrl
+            image: ImageUrl
         })
-
 
         setInput('')
         setImageUrl('')
     }
 
 
-
   return (
     <div className="messageSender">
       <div className = "messageSender__top">
                 <Avatar 
-                        src = ""
+                        src = {user.photoURL}
 
                 />
                 <form>
                     <input 
-                        value = {input}
+                        value = {Input}
                         onChange = { (e) => setInput(e.target.value)}
                         className = "messageSender__input"
-                        placeholder = {`What's on your mind ?`}
+                        placeholder = {`What's on your mind, ${user.displayName} ?`}
                     />
                     <input 
-                        value = {imageUrl}
+                        value = {ImageUrl}
                         onChange = { (e) => setImageUrl(e.target.value)}
                         placeholder = "image URL (optional)"
                     />
